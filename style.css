@@ -95,11 +95,22 @@ body * {
     z-index: 1;
     /* Alinhar position absolute ao centro na horizontal, tirar 50% com o transform no Y e colocar com o top: 50% ou o bottom, para alinhar na vertical é a mesma ideia só que no eixo X e com o right e left. */
     transform: translateY(-50%);
+
+    /* Animação de volta do botão */
+    /* Esse buton tem a propriedade final de left: 0, então não precisa colocar o 'forwards'. */
+    animation: slide-back .2s;
 }
 
 .light #switch button {
-    left: initial;
-    right: 0;
+    /* left: initial;
+    right: 0; */
+    /* Para deixar animado usado a at rule @keyframes, com a propriedade animation, aonde você quer aquela animação. Quando a animação acabar, o elemento que tem essa animação vai voltar para a posição inicial, para que isso não ocorra, é preciso colocar o 'forwards'. O 'forwards' irá manter as propriedades finais(to) atribuidas no @keyframes. */
+    animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover {
+    /* Cor que fica ao redor do botão. */
+    outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -193,5 +204,26 @@ footer {
 
     .light {
         --bg-url: url(./assets/bg-desktop-light.jpg);
+    }
+}
+
+/* Animation */
+/* @keyframes nomequevocêquer {} */
+@keyframes slide-in {
+    /* De onde vai começar a animação */
+    from {
+        left: 0;
+    } /* Aonde vai terminar */
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
     }
 }

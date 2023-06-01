@@ -41,8 +41,8 @@ body * {
 }
 
 #container {
-    width: 360px;
-    height: 712px;
+    width: 100%;
+    max-width: 588px;
     /* Existe uma regra no css que não aplica margin auto nem na parte superior e nem na inferior, somente é aplicado aos lados. */
     margin: 56px auto 0px;
     padding: 0 24px;

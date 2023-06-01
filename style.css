@@ -25,13 +25,6 @@
 }
 
 body {
-    /* background-image: url('./assets/bg-mobile.jpg');
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: cover; */
-
-    /* Não tem apenas esses valores para o background, mas esses são os necessários para esse projeto */
-    /* background: color image repeat position/size */
     background: var(--bg-url) no-repeat top center/cover;
     height: 100vh;
 }
@@ -44,13 +37,10 @@ body * {
 #container {
     width: 100%;
     max-width: 588px;
-    /* Existe uma regra no css que não aplica margin auto nem na parte superior e nem na inferior, somente é aplicado aos lados. */
     margin: 56px auto 0px;
     padding: 0 24px;
 }
 
-/* Elementos inline podem ser alinhados a partir do pai deles com o text-align. Então poderiamos usar o regra abaixo para centralizar a imagem também, mas essa não poderia ter o display block, mas sim inline.
-*/
 
 /* PROFILE */
 #profile {
@@ -60,10 +50,7 @@ body * {
 
 
 #profile img {
-    /* A img é um elemento inline, e não se pode aplicar no margin auto em elementos inline, por isso foi mudado para block. */
-    /* display: block; */
     width: 112px;
-    /* margin: auto; */
 }
 
 #profile p {
@@ -77,7 +64,6 @@ body * {
 #switch {
     position: relative;
     width: 64px;
-
     margin: 4px auto;
 }
 
@@ -87,29 +73,19 @@ body * {
     background: white var(--switch-bg-url) no-repeat center;
     border: 0;
     border-radius: 50%;
-
-    /* Se colocar position absolute em um elemento, esse vai ficar com um posicionamento absoluto em relação a página toda, mas se colocar um position relative em seu elemento pai, o filho que está com position absolute vai ficar com essa propriedade em releção ao pai, e não mais a página. */
     position: absolute;
     top: 50%;
     left: 0;
     z-index: 1;
-    /* Alinhar position absolute ao centro na horizontal, tirar 50% com o transform no Y e colocar com o top: 50% ou o bottom, para alinhar na vertical é a mesma ideia só que no eixo X e com o right e left. */
     transform: translateY(-50%);
-
-    /* Animação de volta do botão */
-    /* Esse buton tem a propriedade final de left: 0, então não precisa colocar o 'forwards'. */
     animation: slide-back .2s;
 }
 
 .light #switch button {
-    /* left: initial;
-    right: 0; */
-    /* Para deixar animado usado a at rule @keyframes, com a propriedade animation, aonde você quer aquela animação. Quando a animação acabar, o elemento que tem essa animação vai voltar para a posição inicial, para que isso não ocorra, é preciso colocar o 'forwards'. O 'forwards' irá manter as propriedades finais(to) atribuidas no @keyframes. */
     animation: slide-in 0.2s forwards;
 }
 
 #switch button:hover {
-    /* Cor que fica ao redor do botão. */
     outline: 8px solid var(--highlight-color);
 }
 
@@ -127,11 +103,9 @@ body * {
 /* Links */
 ul {
     list-style: none;
-
     display: flex;
     flex-direction: column;
     gap: 16px;
-
     padding: 24px 0;
 }
 
@@ -139,18 +113,13 @@ ul li a {
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 16px 24px;
-
     background: var(--surface-color);
     border: 1px solid var(--stroke-color);
     border-radius: 8px;
-
     backdrop-filter: blur(4px);
-
     text-decoration: none;
     font-weight: 500;
-
     transition: background 0.5s;
 }
 
@@ -163,9 +132,7 @@ ul li a:hover {
 #social-links {
     display: flex;
     justify-content: center;
-
     padding: 24px 0;
-
     font-size: 24px;
 }
 
@@ -173,11 +140,8 @@ ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 16px;
-
     transition: background 0.2s;
-
     border-radius: 50%;
 }
 
@@ -189,9 +153,7 @@ ul li a:hover {
 
 footer {
     padding: 24px 0;
-
     font-size: 14px;
-
     text-align: center;
 }
 
@@ -208,12 +170,10 @@ footer {
 }
 
 /* Animation */
-/* @keyframes nomequevocêquer {} */
 @keyframes slide-in {
-    /* De onde vai começar a animação */
     from {
         left: 0;
-    } /* Aonde vai terminar */
+    }
     to {
         left: 50%;
     }
